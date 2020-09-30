@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,8 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('allBlog');
 });
+
+
 Route::get('/addnew', function () {
     return view('addNew');
 });
