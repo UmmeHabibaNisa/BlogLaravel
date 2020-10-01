@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('blog');
+});
+Route::get('/user', function () {
+    return view('user.index');
 });
 
 Auth::routes();
@@ -25,12 +28,14 @@ Route::group(['prefix' => 'admin', 'as'=> 'admin.', 'namespace'=>'Admin','middle
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('create', 'DashboardController@create')->name('create');
     Route::post('store', 'DashboardController@store')->name('store');
-   Route::get('/blog_edit/{blog}', 'DashboardController@edit')->name('edit');
+    Route::get('/blog_edit/{blog}', 'DashboardController@edit')->name('edit');
     Route::get('/blogs/{blog} ', 'DashboardController@destroy')->name('delete');
     Route::put('/update/{blog} ', 'DashboardController@update')->name('update');
+    Route::post('/imageStore ', 'DashboardController@imageStore');
 
 //    Route::resource('blogs', 'DashboardController');
-
 });
-
 /*Route::get('/home', 'HomeController@index')->name('home');*/
+
+Route::group(['prefix' => 'user', 'as'=> 'user.', 'namespace'=>'User','middleware'=>['auth','User']],function (){
+});

@@ -42,7 +42,7 @@ class DashboardController extends Controller
         $blog->save();
 
         return redirect('admin/dashboard')
-            ->with('success','Product created successfully');
+            ->with('success','Blog created successfully');
 
 
     }
@@ -84,7 +84,7 @@ class DashboardController extends Controller
         $blog->update($request->all());
 
         return redirect('admin/dashboard')
-            ->with('success','Product updated successfully');
+            ->with('success','Blog updated successfully');
 
 
     }
@@ -102,8 +102,24 @@ class DashboardController extends Controller
          $blog->delete();
 
          return redirect('admin/dashboard')
-             ->with('success','Product deleted successfully');
+             ->with('success','Blog deleted successfully');
      }
+    public function imageStore(Request $request)
+    {
+        $this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload');
+            $image->move($destinationPath, $name);
+            $this->save();
+
+            return back()->with('success','Image Upload successfully');
+        }
+    }
 
 
 }

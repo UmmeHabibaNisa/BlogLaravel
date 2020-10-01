@@ -2,9 +2,11 @@
 
 @section('content')
     <div class="container">
+        {{--<div style="float: left;">
+
+        </div>--}}
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <br><br>
                 <select class="custom-select custom-select-lg mb-3">
                     <option selected>Choose your blog type</option>
                     <option value="1">Travel</option>
@@ -19,15 +21,21 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>title:</strong>
+                                <h4>Title:</h4>
                                 <input type="text" name="title" class="form-control" placeholder="title">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>File</strong>
-                                <input type="file" name="file" class="form-control">
-                            </div>
+                            {{--<div class="form-group">
+                                <h3>File</h3>
+                                <input type="file" name="image" class="form-control">
+                            </div>  --}}
+                            <form>
+                                <div class="form-group">
+                                    <h3 >Image</h3>
+                                    <input type="file" class="form-control-file" name="image">
+                                </div>
+                            </form>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
@@ -37,7 +45,8 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-info">Submit</button>
+                            <a class="btn btn-info" href="/admin/dashboard" >Back</a>
                         </div>
                     </div>
 
