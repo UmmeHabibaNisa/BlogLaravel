@@ -40,15 +40,11 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{ $blog->title }}</td>
                                     <td>{{ $blog->description }}</td>
-                                    <td>image</td>
+                                    <td><img src="'/upload/'+ image"></td>
                                     <td>
-
-
-{{--                                           <a class="btn btn-info" href="{{ route('admin.blogs.show',$blog->id) }}">Show</a>--}}
-
-                                           <a class="btn btn-info" href="{{ route('admin.edit',$blog->id) }}">Edit</a>
-
-                                           <a  href="{{ route('admin.delete',$blog->id) }}" class="btn btn-danger">Delete</a>
+                                        <a class="btn btn-info" href="{{ route('admin.blogs.show',$blog->id) }}">Show</a>--}}
+                                        <a class="btn btn-info" href="{{ route('admin.edit',$blog->id) }}">Edit</a>
+                                        <a  href="{{ route('admin.delete',$blog->id) }}" class="btn btn-danger">Delete</a>
 
                                         {{--<button type="submit" class="btn btn-primary">Edit</button>
                                         <button type="submit" class="btn btn-primary">Delete</button>--}}

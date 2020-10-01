@@ -15,7 +15,7 @@
                 </select>
                 <h4>What would be the title of your blog?</h4>
 
-                <form action="{{ route('admin.store') }}" method="POST">
+                <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row">
@@ -26,16 +26,10 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            {{--<div class="form-group">
-                                <h3>File</h3>
-                                <input type="file" name="image" class="form-control">
-                            </div>  --}}
-                            <form>
-                                <div class="form-group">
-                                    <h3 >Image</h3>
-                                    <input type="file" class="form-control-file" name="image">
-                                </div>
-                            </form>
+                            <div class="form-group">
+                                <h3>Image</h3>
+                                <input type="file" class="form-control-file" name="image">
+                            </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
@@ -46,7 +40,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-info">Submit</button>
-                            <a class="btn btn-info" href="/admin/dashboard" >Back</a>
+                            <a class="btn btn-info" href="/admin/dashboard">Back</a>
                         </div>
                     </div>
 

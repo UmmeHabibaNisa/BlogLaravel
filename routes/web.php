@@ -31,8 +31,6 @@ Route::group(['prefix' => 'admin', 'as'=> 'admin.', 'namespace'=>'Admin','middle
     Route::get('/blog_edit/{blog}', 'DashboardController@edit')->name('edit');
     Route::get('/blogs/{blog} ', 'DashboardController@destroy')->name('delete');
     Route::put('/update/{blog} ', 'DashboardController@update')->name('update');
-    Route::post('/imageStore ', 'DashboardController@imageStore');
-
 //    Route::resource('blogs', 'DashboardController');
 });
 /*Route::get('/home', 'HomeController@index')->name('home');*/
