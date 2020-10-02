@@ -7,16 +7,18 @@
         </div>--}}
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <select class="custom-select custom-select-lg mb-3">
-                    <option selected>Choose your blog type</option>
-                    @foreach($categories as $category)
-                    <option>{{ $category->category_name }}</option>
-                    @endforeach
-                </select>
+
                 <h4>What would be the title of your blog?</h4>
 
                 <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    <select name="category" class="custom-select custom-select-lg mb-3">
+                        <option selected>Choose your blog type</option>
+                        @foreach($categories as $category)
+                            <option value="{{  $category->id }}">{{ $category->category_name }}</option>
+                        @endforeach
+                    </select>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">

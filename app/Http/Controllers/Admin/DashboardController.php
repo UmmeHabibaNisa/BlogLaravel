@@ -19,10 +19,13 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $blogs = Blog::paginate(5);
+        //$blogs = Blog::paginate(5);
+        $blogs = Blog::with('cat')->paginate(5);
+//        return $blogs;
 
 
         return view('admin.index', compact('blogs'));
+
     }
 
     public function create()
@@ -34,6 +37,7 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+
 
         $request->validate([
             'title' => 'required',
@@ -49,6 +53,7 @@ class DashboardController extends Controller
         $blog->user_id = 1;
         $blog->title = $request->title;
         $blog->description = $request->description;
+        $blog->category = $request->category;
         $blog->image = $file_name;
         $blog->save();
 

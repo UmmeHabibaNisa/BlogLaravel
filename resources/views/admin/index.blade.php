@@ -40,7 +40,7 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{ $blog->title }}</td>
-                                    <td></td>
+                                    <td>{{ isset($blog->cat)?$blog->cat->category_name:'' }}</td>
                                     <td>{{ $blog->description }}</td>
                                     <td>
                                         <img style="width: 168px; height: 95px;" src="{{ asset('/upload/'.$blog->image) }}">

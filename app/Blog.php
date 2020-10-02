@@ -10,9 +10,9 @@ class Blog extends Model
         'title', 'user_id','description','image'
     ];
 
-    public function blog(){
 
-        return $this->belongsTo('App\Category');
+    public function cat(){
+        return $this->belongsTo(Category::class,'category','id');
 
     }
 }
