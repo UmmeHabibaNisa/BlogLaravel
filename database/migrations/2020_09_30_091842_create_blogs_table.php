@@ -14,7 +14,7 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+            $table->bigIncrements('id');
             $table->string('title');
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
@@ -23,7 +23,7 @@ class CreateBlogsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

@@ -33,6 +33,7 @@
     <img src="{{ asset('/upload/'.$blog->image) }}" class="card-img-top" alt="1">
     <div class="card-body">
         <h5 class="card-title">{{ $blog->title }}</h5>
+        <h6>{{ isset($blog->cat)?$blog->cat->category_name:'' }}</h6>
         <p class="card-text">{{ $blog->description }}</p>
     </div>
 </div>
