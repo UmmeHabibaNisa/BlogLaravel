@@ -15,6 +15,6 @@ class RolesTableSeeder extends Seeder
     {
         $admin = Role::create(['name'=>'admin']);
         $user = Role::create(['name'=>'user']);
-        $suspend = Role::create(['name'=>'suspend']);
+        /*$suspend = Role::create(['name'=>'suspend']);*/
     }
 }

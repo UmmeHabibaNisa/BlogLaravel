@@ -23,6 +23,7 @@ class CreateBlogsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->string('category');
             $table->timestamps();
         });
     }

@@ -26,23 +26,17 @@
         @endauth
     </div>
 @endif
+
 <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-               <div style="padding-top: 30px;">
-                <div class="card" style="width: 18rem; ">
-                    <img src="{{asset('upload/joker.jpg')}}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Blog title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Read Details</a>
-                    </div>
-                </div>
-               </div>
-            </div>
-        </div>
+@foreach ($blogs as $blog)
+<div class="card mb-3" style="width: 1000px; margin-left: 50px;">
+    <img src="{{ asset('/upload/'.$blog->image) }}" class="card-img-top" alt="1">
+    <div class="card-body">
+        <h5 class="card-title">{{ $blog->title }}</h5>
+        <p class="card-text">{{ $blog->description }}</p>
+    </div>
 </div>
-
-
+@endforeach
+</div>
 
     @endsection

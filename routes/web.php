@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('blog');
-});
+Route::get('/', 'UsersController@index');
+
 Route::get('/user', function () {
     return view('user.index');
 });
@@ -31,6 +30,8 @@ Route::group(['prefix' => 'admin', 'as'=> 'admin.', 'namespace'=>'Admin','middle
     Route::get('/blog_edit/{blog}', 'DashboardController@edit')->name('edit');
     Route::get('/blogs/{blog} ', 'DashboardController@destroy')->name('delete');
     Route::put('/update/{blog} ', 'DashboardController@update')->name('update');
+    Route::resource('categories', 'CategoryController');
+
 //    Route::resource('blogs', 'DashboardController');
 });
 /*Route::get('/home', 'HomeController@index')->name('home');*/

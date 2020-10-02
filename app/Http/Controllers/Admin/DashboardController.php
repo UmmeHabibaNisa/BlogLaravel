@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Blog;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,14 +18,18 @@ class DashboardController extends Controller
     }*/
     public function index()
     {
-        $blogs = Blog::latest()->paginate(5);
+
+        $blogs = Blog::paginate(5);
+
 
         return view('admin.index', compact('blogs'));
     }
 
     public function create()
+
     {
-        return view('admin.create');
+        $categories = Category::all();
+        return view('admin.create' ,compact('categories'));
     }
 
     public function store(Request $request)
@@ -110,5 +115,4 @@ class DashboardController extends Controller
         return redirect('admin/dashboard')
             ->with('success', 'Blog deleted successfully');
     }
-
 }

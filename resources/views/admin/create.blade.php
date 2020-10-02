@@ -9,9 +9,9 @@
             <div class="col-md-8">
                 <select class="custom-select custom-select-lg mb-3">
                     <option selected>Choose your blog type</option>
-                    <option value="1">Travel</option>
-                    <option value="2">Food</option>
-                    <option value="3">Technology</option>
+                    @foreach($categories as $category)
+                    <option>{{ $category->category_name }}</option>
+                    @endforeach
                 </select>
                 <h4>What would be the title of your blog?</h4>
 
@@ -41,6 +41,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-info">Submit</button>
                             <a class="btn btn-info" href="/admin/dashboard">Back</a>
+                            <a class="btn btn-info" href="{{route('admin.categories.index')}}">Category</a>
                         </div>
                     </div>
 

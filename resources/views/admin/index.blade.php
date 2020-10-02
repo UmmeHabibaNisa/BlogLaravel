@@ -29,6 +29,7 @@
                             <tr>
                                 <th scope="col">Index</th>
                                 <th scope="col">Title</th>
+                                <th scope="col">Category</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
                                 <th scope="col"></th>
@@ -39,18 +40,19 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{ $blog->title }}</td>
+                                    <td></td>
                                     <td>{{ $blog->description }}</td>
-                                    <td><img src="'/upload/'+ image"></td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('admin.blogs.show',$blog->id) }}">Show</a>--}}
+                                        <img style="width: 168px; height: 95px;" src="{{ asset('/upload/'.$blog->image) }}">
+                                    </td>
+                                    <td>
+                                        {{--<a class="btn btn-info" href="{{ route('admin.blogs.show',$blog->id) }}">Show</a>--}}
                                         <a class="btn btn-info" href="{{ route('admin.edit',$blog->id) }}">Edit</a>
                                         <a  href="{{ route('admin.delete',$blog->id) }}" class="btn btn-danger">Delete</a>
 
                                         {{--<button type="submit" class="btn btn-primary">Edit</button>
                                         <button type="submit" class="btn btn-primary">Delete</button>--}}
                                     </td>
-
-
                                 </tr>
                             @endforeach
 
