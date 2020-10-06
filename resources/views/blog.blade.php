@@ -28,6 +28,7 @@
 @endif
 
 <div class="container">
+    <div class="row">
 @foreach ($blogs as $blog)
 <div class="card mb-3" style="width: 1000px; margin-left: 50px;">
     <img src="{{ asset('/upload/'.$blog->image) }}" class="card-img-top" alt="1">
@@ -37,13 +38,13 @@
         <p class="card-text">{{ $blog->description }}</p>
         <div>
             @foreach ( json_decode($blog->gallery) as $pictures )
-                <img src="{{ asset('/upload/'.$pictures ) }}">
+                <img src="{{ asset('/upload/'.$pictures ) }}" height="150" width="auto">
             @endforeach
-
         </div>
     </div>
 </div>
 @endforeach
 </div>
+    </div>
 
     @endsection

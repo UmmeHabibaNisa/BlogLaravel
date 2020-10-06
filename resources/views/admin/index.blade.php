@@ -18,7 +18,10 @@
                         @endif
                     <!-- {{ __('You are logged in!') }} -->
                         <br><br>
-
+                            <span>
+                            <a type="submit" href="/" class="btn btn-primary">All Blogs</a>
+                            {{--<a type ="button" href="\addnew" class="btn btn-dark">Add New</a>--}}
+                        </span>
                         <span>
                             <a type="submit" href="{{ route('admin.create') }}" class="btn btn-primary">Add New</a>
                             {{--<a type ="button" href="\addnew" class="btn btn-dark">Add New</a>--}}
