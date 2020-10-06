@@ -33,12 +33,17 @@
 <div class="card mb-3" style="width: 1000px; margin-left: 50px;">
     <img src="{{ asset('/upload/'.$blog->image) }}" class="card-img-top" alt="1">
     <div class="card-body">
-        <h5 class="card-title">{{ $blog->title }}</h5>
+        <h3 class="card-title">{{ $blog->title }}</h3>
         <h6>{{ isset($blog->cat)?$blog->cat->category_name:'' }}</h6>
         <p class="card-text">{{ $blog->description }}</p>
         <div>
             @foreach ( json_decode($blog->gallery) as $pictures )
                 <img src="{{ asset('/upload/'.$pictures ) }}" height="150" width="auto">
+            @endforeach
+        </div>
+        <div>
+            @foreach(json_decode($blog->tags) as $tag)
+                <span class="badge badge-pill badge-primary">{{ $tag }}</span>
             @endforeach
         </div>
     </div>
