@@ -36,6 +36,12 @@
                                     <textarea class="form-control" style="height:150px" name="description" placeholder="Detail">{{ $blog->description }}</textarea>
                                 </div>
                             </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <h4>Tags:</h4>
+                                    <input class="form-control"  name="tags[]" placeholder="Detail" value="{{ $blog->tags }}">
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-info">Submit</button>
                             </div>

@@ -38,23 +38,42 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
 
+//        $str = "Hello world. It's a beautiful day.";
+
 
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+
         ]);
+
+        $images=array();
+        if($files=$request->file('images')){
+            foreach($files as $file){
+                $name=time() . '.' . $file->getClientOriginalName();
+                $file->move(public_path('/upload'),$name);
+                $images[]=$name;
+            }
+        }
+//        $tags=array();
+
         $file_name = '';
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $file_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('/upload'), $file_name);
         }
+
+        $tags = explode(",",$request->tags);
+        /*dd($tags);*/
         $blog = new Blog;
         $blog->user_id = 1;
         $blog->title = $request->title;
         $blog->description = $request->description;
         $blog->category = $request->category;
+        $blog->tags =json_encode($tags);
         $blog->image = $file_name;
+        $blog->gallery= json_encode($images);
         $blog->save();
 
         return redirect('admin/dashboard')

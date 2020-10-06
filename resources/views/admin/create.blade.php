@@ -29,8 +29,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <h3>Image</h3>
-                                <input type="file" class="form-control-file" name="image">
+                                <h3>Featured Image</h3>
+                                <input type="file" class="form-control-file" name="image" >
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -40,7 +40,26 @@
                                           placeholder="Description"></textarea>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <h3>Images</h3>
+                                <input type="file" class="form-control-file" name="gallery[]" multiple="multiple">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Tags:</strong>
+                               {{-- @foreach()--}}
+{{--                                <input class="form-control" type = "text" name="tags[]"--}}
+{{--                                          placeholder="Tags">--}}
+                                    {{--@endforeach--}}
+                                <input name="tags" type="text" value="" class="tags" />
+
+                            </div>
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+
+{{--                            <input type=submit" class="btn btn-info" value="Submit">--}}
                             <button type="submit" class="btn btn-info">Submit</button>
                             <a class="btn btn-info" href="/admin/dashboard">Back</a>
                             <a class="btn btn-info" href="{{route('admin.categories.index')}}">Category</a>

@@ -15,7 +15,7 @@
                         @endif
                         @if(Auth::check())
                             You are logged in as {{Auth::user()->name}}
-                    @endif
+                        @endif
                     <!-- {{ __('You are logged in!') }} -->
                         <br><br>
 
@@ -32,6 +32,7 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Tags</th>
                                 <th scope="col"></th>
 
                             </tr>
@@ -43,12 +44,29 @@
                                     <td>{{ isset($blog->cat)?$blog->cat->category_name:'' }}</td>
                                     <td>{{ $blog->description }}</td>
                                     <td>
-                                        <img style="width: 168px; height: 95px;" src="{{ asset('/upload/'.$blog->image) }}">
+
+                                        <img style="width: 100px; height: 75px;"
+                                             src="{{ asset('/upload/'.$blog->image) }}">
+                                       {{-- @foreach(json_decode($blog->tags) as $tag)
+                                            <span class="badge badge-pill badge-primary"
+                                                  style="font-size: 16px">{{ $tag }}</span>
+                                        @endforeach--}}
+                                        {{--@dd(json_decode($blog->image))--}}
+                                       {{-- @foreach ( json_decode($blog->image) as $pictures )
+                                            <img style="width: 100px; height: 75px;"
+                                                 src="{{ asset('/upload/'.$pictures /*$blog->image*/) }}">
+                                        @endforeach--}}
+                                    </td>
+                                    <td>
+                                        @foreach(json_decode($blog->tags) as $tag)
+                                            <span class="badge badge-pill badge-primary">{{ $tag }}</span>
+                                        @endforeach
                                     </td>
                                     <td>
                                         {{--<a class="btn btn-info" href="{{ route('admin.blogs.show',$blog->id) }}">Show</a>--}}
                                         <a class="btn btn-info" href="{{ route('admin.edit',$blog->id) }}">Edit</a>
-                                        <a  href="{{ route('admin.delete',$blog->id) }}" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('admin.delete',$blog->id) }}"
+                                           class="btn btn-danger">Delete</a>
 
                                         {{--<button type="submit" class="btn btn-primary">Edit</button>
                                         <button type="submit" class="btn btn-primary">Delete</button>--}}

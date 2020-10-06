@@ -9,15 +9,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('tagsinput/tagsinput.css') }}">
+
+
 </head>
 <body>
     <div id="app">
@@ -76,5 +77,18 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('tagsinput/tagsinput.js') }}"></script>
+    <script !src="">
+        $(document).ready(function() {
+            $('.tags').tagsinput({
+                allowDuplicates: true
+            });
+        });
+    </script>
 </body>
 </html>
