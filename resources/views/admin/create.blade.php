@@ -43,7 +43,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <h3>Images</h3>
-                                <input type="file" class="form-control-file" name="gallery[]" multiple="multiple">
+                                <input type="file" class="form-control-file" name="images[]" multiple="multiple">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
