@@ -49733,6 +49733,31 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+var Foo = {
+  template: '<div>foo</div>'
+};
+var Bar = {
+  template: '<div>bar</div>'
+}; // 2. Define some routes
+// Each route should map to a component. The "component" can
+// either be an actual component constructor created via
+// `Vue.extend()`, or just a component options object.
+// We'll talk about nested routes later.
+
+var routes = [{
+  path: '/foo',
+  component: Foo
+}, {
+  path: '/bar',
+  component: Bar
+}]; // 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+
+var router = new VueRouter({
+  routes: routes // short for `routes: routes`
+
+});
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -49740,9 +49765,13 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+/*const app = new Vue({
+    el: '#app',
+});*/
+
 var app = new Vue({
-  el: '#app'
-});
+  router: router
+}).$mount('#app');
 
 /***/ }),
 

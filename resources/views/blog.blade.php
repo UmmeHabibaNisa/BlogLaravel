@@ -27,7 +27,7 @@
     </div>
 @endif
 
-<div class="container">
+{{--<div class="container">
     <div class="row">
 @foreach ($blogs as $blog)
 <div class="card mb-3" style="width: 1000px; margin-left: 50px;">
@@ -50,6 +50,6 @@
 </div>
 @endforeach
 </div>
-    </div>
+    </div>--}}
 
     @endsection
