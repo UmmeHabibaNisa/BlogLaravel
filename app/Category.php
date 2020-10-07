@@ -10,7 +10,7 @@ class Category extends Model
         'category_name'
     ];
     public function blog(){
-        return $this->belongsTo('App\Blog');
+        return $this->hasMany(Blog::class);
 
     }
 

@@ -16,7 +16,7 @@ class UsersController extends Controller
     {
         $blogs = Blog::all();
 
-        return view('blog', compact('blogs'));
+        return response()->json($blogs);
     }
 
     /**

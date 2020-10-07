@@ -10,6 +10,11 @@ class Blog extends Model
         'title', 'user_id','description','images','tags', 'image'
     ];
 
+    protected $casts = [
+         'tags' => 'array', 'gallery' => 'array'
+
+    ];
+
 
     public function cat(){
         return $this->belongsTo(Category::class,'category','id');

@@ -66,7 +66,7 @@ class DashboardController extends Controller
 
         $tags = explode(",",$request->tags);
         /*dd($tags);*/
-        $blog = new Blog;
+        $blog = new Blog();
         $blog->user_id = 1;
         $blog->title = $request->title;
         $blog->description = $request->description;

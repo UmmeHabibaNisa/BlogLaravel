@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'UsersController@index');
+//Route::get('/', 'UsersController@index');
 
 Route::get('/user', function () {
     return view('user.index');
@@ -23,7 +24,7 @@ Auth::routes();
 /*Route::post('storeBlog', 'BlogController@store') ;*/
 
 //Admin///////////
-Route::group(['prefix' => 'admin', 'as'=> 'admin.', 'namespace'=>'Admin','middleware'=>['auth','admin']],function (){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('create', 'DashboardController@create')->name('create');
     Route::post('store', 'DashboardController@store')->name('store');
@@ -36,5 +37,10 @@ Route::group(['prefix' => 'admin', 'as'=> 'admin.', 'namespace'=>'Admin','middle
 });
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 
-Route::group(['prefix' => 'user', 'as'=> 'user.', 'namespace'=>'User','middleware'=>['auth','User']],function (){
+Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User', 'middleware' => ['auth', 'User']], function () {
 });
+
+
+Route::get('/{vue_route?}', function () {
+    return view('welcome');
+})->where('vue_route', '(.*)');
